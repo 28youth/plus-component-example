@@ -1,0 +1,28 @@
+{
+    "name":"zhiyicx/plus-component-example",
+    "type":"plus-component",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"28youth",
+            "email":"daviezhang@vip.qq.com",
+            "role":"Developer"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Zhiyicx\\Component\\ZhiyiPlus\\PlusComponentExample\\":"src/"
+        }
+    },
+    "extra":{
+        "laravel":{
+            "providers":[
+                "Zhiyicx\\Component\\ZhiyiPlus\\PlusComponentExample\\ExampleServiceProvider"
+            ]
+        }
+    },
+    "require":{
+        "zhiyicx/plus-installer":"^1.0"
+    },
+    "version": "1.0.0"
+}
