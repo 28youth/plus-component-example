@@ -11,18 +11,17 @@
     ],
     "autoload":{
         "psr-4":{
-            "Zhiyicx\\Component\\ZhiyiPlus\\PlusComponentExample\\":"src/"
+            "Zhiyi\\Component\\ZhiyiPlus\\PlusComponentExample\\":"src/"
         }
     },
     "extra":{
         "laravel":{
             "providers":[
-                "Zhiyicx\\Component\\ZhiyiPlus\\PlusComponentExample\\ExampleServiceProvider"
+                "Zhiyi\\Component\\ZhiyiPlus\\PlusComponentExample\\ExampleServiceProvider"
             ]
         }
     },
     "require":{
         "zhiyicx/plus-installer":"^1.0"
-    },
-    "version": "1.0.0"
+    }
 }
