@@ -1,6 +1,6 @@
 <?php
 
-namespace Zhiyicx\Component\ZhiyiPlus\PlusComponentExample;
+namespace Zhiyi\Component\ZhiyiPlus\PlusComponentExample;
 
 use Illuminate\Support\ServiceProvider;
 use Zhiyi\Component\ZhiyiPlus\PlusComponentExample\ExamplePackageHandler;
