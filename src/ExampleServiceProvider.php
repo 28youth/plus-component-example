@@ -29,7 +29,9 @@ class ExampleServiceProvider extends ServiceProvider
 		], 'public');
 
 		// 注册数据库迁移
-		$this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom([
+            dirname(__DIR__).'/database/migrations',
+        ]);
 
 		// 注入处理器
 		PackageHandler::loadHandleFrom('example', ExamplePackageHandler::class);

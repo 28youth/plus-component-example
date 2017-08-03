@@ -10,6 +10,7 @@
         }
     ],
     "autoload":{
+        "classmap": ["database/"],
         "psr-4":{
             "Zhiyi\\Component\\ZhiyiPlus\\PlusComponentExample\\":"src/"
         }
@@ -23,5 +24,6 @@
     },
     "require":{
         "zhiyicx/plus-installer":"^1.0"
-    }
+    },
+    "version": "1.0.2"
 }
