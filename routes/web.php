@@ -1,5 +1,4 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+Route::any('/', 'ExampleController@example')->name('web:example');
 
-Route::get('example', 'ExampleController@example')->name('example');

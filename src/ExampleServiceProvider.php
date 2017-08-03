@@ -7,18 +7,21 @@ use Zhiyi\Component\ZhiyiPlus\PlusComponentExample\ExamplePackageHandler;
 use Zhiyi\Plus\Support\ManageRepository;
 use Zhiyi\Plus\Support\PackageHandler;
 
-class ExampleServiceProvider extends ServiceProvider {
+class ExampleServiceProvider extends ServiceProvider 
+{
+
 	/**
 	 * Bootstrap the package.
 	 *
 	 * @return void
 	 */
-	public function boot() {
+	public function boot() 
+	{
 		// 注入路由
 		$this->routeMap();
 
 		// 注册视图
-		$this->loadViewsFrom(dirname(__DIR__) . '/views/', 'example');
+		$this->loadViewsFrom(dirname(__DIR__) . '/views', 'example');
 
 		// 注册资源文件
 		$this->publishes([
@@ -37,7 +40,8 @@ class ExampleServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function register() {
+	public function register() 
+	{
 		// 注入后台导航
 		$this->app->make(ManageRepository::class)->loadManageFrom('example', 'example:admin', [
 			'route' => true,
@@ -46,14 +50,16 @@ class ExampleServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	 * Register route.
-	 *
-	 * @return void
-	 */
-	protected function routeMap() {
-		$this->loadRoutesFrom(
-			dirname(__DIR__) . '/routes/web.php'
-		);
-	}
+     * Register route.
+     *
+     * @return void
+     * @author Seven Du <shiweidu@outlook.com>
+     */
+    protected function routeMap()
+    {
+        if (! $this->app->routesAreCached()) {
+            $this->app->make(RouteRegistrar::class)->all();
+        }
+    }
 
 }
