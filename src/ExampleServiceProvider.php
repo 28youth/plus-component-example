@@ -9,7 +9,6 @@ use Zhiyi\Plus\Support\PackageHandler;
 
 class ExampleServiceProvider extends ServiceProvider 
 {
-
 	/**
 	 * Bootstrap the package.
 	 *
@@ -18,7 +17,7 @@ class ExampleServiceProvider extends ServiceProvider
 	public function boot() 
 	{
 		// Register route.
-		$this->routeMap();
+		$this->loadRoutesFrom(dirname(__DIR__).'/router.php');
 
 		// Load views.
 		$this->loadViewsFrom(dirname(__DIR__).'/views', 'example');
@@ -32,6 +31,13 @@ class ExampleServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom([
             dirname(__DIR__).'/database/migrations',
         ]);
+
+		// Register commands
+        if ($this->app->runningInConsole()) {
+	        $this->commands([
+	            PackageTestCommand::class
+	        ]);
+	    }
 
 		// Publish handler.
 		PackageHandler::loadHandleFrom('example', ExamplePackageHandler::class);
@@ -50,18 +56,4 @@ class ExampleServiceProvider extends ServiceProvider
 			'icon' => asset('zhiyicx/plus-component-example/example-icon.png'),
 		]);
 	}
-
-	/**
-     * Register route.
-     *
-     * @return void
-     * @author Seven Du <shiweidu@outlook.com>
-     */
-    protected function routeMap()
-    {
-        if (! $this->app->routesAreCached()) {
-            $this->app->make(RouteRegistrar::class)->all();
-        }
-    }
-
 }
