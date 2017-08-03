@@ -1,3 +1,3 @@
 <?php 
 
-Route::any('/', 'ExampleController@example')->name('admin:example');
+Route::any('/', 'ExampleController@example')->name('example:admin');

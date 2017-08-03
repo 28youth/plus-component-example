@@ -17,23 +17,23 @@ class ExampleServiceProvider extends ServiceProvider
 	 */
 	public function boot() 
 	{
-		// 注入路由
+		// Register route.
 		$this->routeMap();
 
-		// 注册视图
-		$this->loadViewsFrom(dirname(__DIR__) . '/views', 'example');
+		// Load views.
+		$this->loadViewsFrom(dirname(__DIR__).'/views', 'example');
 
-		// 注册资源文件
+		// Publish resource file.
 		$this->publishes([
-			dirname(__DIR__) . '/assets' => $this->app->PublicPath() . '/zhiyicx/plus-component-example',
+			dirname(__DIR__).'/assets' => $this->app->PublicPath().'/zhiyicx/plus-component-example',
 		], 'public');
 
-		// 注册数据库迁移
+		// Register migration files.
         $this->loadMigrationsFrom([
             dirname(__DIR__).'/database/migrations',
         ]);
 
-		// 注入处理器
+		// Publish handler.
 		PackageHandler::loadHandleFrom('example', ExamplePackageHandler::class);
 	}
 
@@ -47,7 +47,7 @@ class ExampleServiceProvider extends ServiceProvider
 		// 注入后台导航
 		$this->app->make(ManageRepository::class)->loadManageFrom('example', 'example:admin', [
 			'route' => true,
-			'icon' => 'Z', // Icon 为 Z 字符，修改成你需要的。
+			'icon' => asset('zhiyicx/plus-component-example/example-icon.png'),
 		]);
 	}
 

@@ -1,4 +1,4 @@
 <?php
 
-Route::any('/', 'ExampleController@example')->name('web:example');
+Route::any('/', 'ExampleController@example')->name('example:web');
 
